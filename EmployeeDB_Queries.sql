@@ -44,3 +44,17 @@ ORDER BY e.hire_date ASC;
 -- List the manager of each department with the following information:
 -- department number, department name, the manager's employee number, 
 -- last name, first name, and start and end employment dates.
+SELECT
+	dm.dept_no AS "Dept Number",
+	d.dept_name AS "Dept Name",
+	dm.emp_no AS "Employee Num",
+	e.last_name AS "Last Name",
+	e.first_name AS "First Name",
+	dm.from_date AS "Employ Start Data",
+	dm.to_date AS "Employ End Data"
+	
+FROM dept_manager dm
+JOIN departments d
+ON dm.dept_no = d.dept_no
+JOIN employees e
+ON dm.emp_no = e.emp_no;
