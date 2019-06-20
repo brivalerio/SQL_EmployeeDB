@@ -50,8 +50,8 @@ SELECT
 	dm.emp_no AS "Employee Num",
 	e.last_name AS "Last Name",
 	e.first_name AS "First Name",
-	dm.from_date AS "Employ Start Data",
-	dm.to_date AS "Employ End Data"
+	dm.from_date AS "Employ Start Date",
+	dm.to_date AS "Employ End Date"
 	
 FROM dept_manager dm
 JOIN departments d
