@@ -58,3 +58,20 @@ JOIN departments d
 ON dm.dept_no = d.dept_no
 JOIN employees e
 ON dm.emp_no = e.emp_no;
+
+-- Query 4
+-- List the department of each employee with the following information:
+-- employee number, last name, first name, and department name.
+SELECT
+	e.emp_no AS "Employee Num",
+	e.last_name AS "Last Name",
+	e.first_name AS "First Name",
+	d.dept_name as "Dept Name"
+	
+FROM employees e
+JOIN dept_emp de
+ON e.emp_no = de.emp_no
+JOIN departments d
+ON de.dept_no = d.dept_no
+WHERE de.to_date = '9999/01/01'
+ORDER BY e.emp_no ASC;
