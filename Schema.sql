@@ -1,9 +1,9 @@
--- DROP TABLE departments CASCADE;
--- DROP TABLE dept_emp CASCADE;
--- DROP TABLE dept_manager CASCADE;
--- DROP TABLE employees CASCADE;
--- DROP TABLE salaries CASCADE;
--- DROP TABLE titles CASCADE;
+DROP TABLE departments CASCADE;
+DROP TABLE dept_emp CASCADE;
+DROP TABLE dept_manager CASCADE;
+DROP TABLE employees CASCADE;
+DROP TABLE salaries CASCADE;
+DROP TABLE titles CASCADE;
 
 CREATE TABLE employees (
     emp_no INTEGER   NOT NULL,
@@ -21,28 +21,40 @@ CREATE TABLE salaries (
     emp_no INTEGER   NOT NULL,
     salary INTEGER   NOT NULL,
     from_date DATE   NOT NULL,
-    to_date DATE   NOT NULL
+    to_date DATE   NOT NULL,
+    CONSTRAINT pk_salaries PRIMARY KEY (
+        emp_no
+     )
 );
 
 CREATE TABLE titles (
     emp_no INTEGER   NOT NULL,
     title VARCHAR   NOT NULL,
     from_date DATE   NOT NULL,
-    to_date DATE   NOT NULL
+    to_date DATE   NOT NULL,
+    CONSTRAINT pk_titles PRIMARY KEY (
+        emp_no,from_date
+     )
 );
 
 CREATE TABLE dept_manager (
     dept_no VARCHAR   NOT NULL,
     emp_no INTEGER   NOT NULL,
     from_date DATE   NOT NULL,
-    to_date DATE   NOT NULL
+    to_date DATE   NOT NULL,
+    CONSTRAINT pk_dept_manager PRIMARY KEY (
+        emp_no
+     )
 );
 
 CREATE TABLE dept_emp (
     emp_no INTEGER   NOT NULL,
     dept_no VARCHAR   NOT NULL,
     from_date DATE   NOT NULL,
-    to_date DATE   NOT NULL
+    to_date DATE   NOT NULL,
+    CONSTRAINT pk_dept_emp PRIMARY KEY (
+        emp_no,from_date
+     )
 );
 
 CREATE TABLE departments (
