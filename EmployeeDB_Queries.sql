@@ -88,3 +88,42 @@ and last_name like 'B%';
 
 -- Query 6
 -- List all employees in the Sales department, including their employee number, last name, first name, and department name.
+SELECT
+	e.emp_no AS "Employee Num",
+	e.last_name AS "Last Name",
+	e.first_name AS "First Name",
+	d.dept_name AS "Dept Name"
+
+FROM employees e
+JOIN dept_emp de
+ON e.emp_no = de.emp_no
+JOIN departments d
+ON d.dept_no = de.dept_no
+WHERE d.dept_name = 'Sales'
+ORDER BY e.emp_no ASC;
+
+-- Query 7
+-- List all employees in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT
+	e.emp_no AS "Employee Num",
+	e.last_name AS "Last Name",
+	e.first_name AS "First Name",
+	d.dept_name AS "Dept Name"
+
+FROM employees e
+JOIN dept_emp de
+ON e.emp_no = de.emp_no
+JOIN departments d
+ON d.dept_no = de.dept_no
+WHERE d.dept_name in ('Sales','Development')
+ORDER BY e.emp_no ASC;
+
+-- Query 8
+-- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
+SELECT
+	last_name AS "Last Name",
+	COUNT(last_name) AS "Count"
+
+FROM employees
+GROUP BY last_name
+ORDER BY "Count" DESC;
