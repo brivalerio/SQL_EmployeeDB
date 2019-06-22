@@ -73,5 +73,18 @@ JOIN dept_emp de
 ON e.emp_no = de.emp_no
 JOIN departments d
 ON de.dept_no = d.dept_no
-WHERE de.to_date = '9999/01/01'
+-- WHERE de.to_date = '9999/01/01' -- testing current employees
 ORDER BY e.emp_no ASC;
+
+-- Query 5
+-- List all employees whose first name is "Hercules" and last names begin with "B."
+SELECT
+	first_name AS "First Name",
+	last_name AS "Last Name"
+	
+FROM employees
+where first_name = 'Hercules'
+and last_name like 'B%';
+
+-- Query 6
+-- List all employees in the Sales department, including their employee number, last name, first name, and department name.
