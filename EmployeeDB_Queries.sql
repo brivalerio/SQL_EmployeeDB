@@ -66,14 +66,14 @@ SELECT
 	e.emp_no AS "Employee Num",
 	e.last_name AS "Last Name",
 	e.first_name AS "First Name",
-	d.dept_name as "Dept Name"
+	d.dept_name AS "Dept Name"
 	
 FROM employees e
 JOIN dept_emp de
 ON e.emp_no = de.emp_no
 JOIN departments d
 ON de.dept_no = d.dept_no
--- WHERE de.to_date = '9999/01/01' -- testing current employees
+WHERE de.to_date = '9999/01/01'
 ORDER BY e.emp_no ASC;
 
 -- Query 5
